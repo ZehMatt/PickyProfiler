@@ -19,6 +19,11 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Build x64
       run: msbuild src/PickyProfiler.sln /t:Rebuild /p:configuration=Release /p:Platform=x64
+    - name: Upload artifacts (CI)
+      uses: actions/upload-artifact@v1
+      with:
+        name: "Picky-Windows-x86_64"
+        path: bin
       
   build-x86:
 
@@ -36,3 +41,8 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Build x64
       run: msbuild src/PickyProfiler.sln /t:Rebuild /p:configuration=Release /p:Platform=x86
+    - name: Upload artifacts (CI)
+      uses: actions/upload-artifact@v1
+      with:
+        name: "Picky-Windows-x86"
+        path: bin
