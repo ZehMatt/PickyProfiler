@@ -39,7 +39,7 @@ jobs:
       run: vcpkg integrate install
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
-    - name: Build x64
+    - name: Build x86
       run: msbuild src/PickyProfiler.sln /t:Rebuild /p:configuration=Release /p:Platform=x86
     - name: Upload artifacts (CI)
       uses: actions/upload-artifact@v1
