@@ -1,0 +1,38 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build-x64:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: AsmJIT Dependency setup
+      run: vcpkg install asmjit:x64-windows-static
+    - name: Zydis Depdency setup
+      run: vcpkg install zydis:x64-windows-static
+    - name: Vcpkg Integration
+      run: vcpkg integrate install
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+    - name: Build x64
+      run: msbuild src/Picky.sln /t:Rebuild /p:configuration=Release /p:Platform=x64
+      
+  build-x86:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: AsmJIT Dependency setup
+      run: vcpkg install asmjit:x86-windows-static
+    - name: Zydis Depdency setup
+      run: vcpkg install zydis:x86-windows-static
+    - name: Vcpkg Integration
+      run: vcpkg integrate install
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+    - name: Build x64
+      run: msbuild src/PickyProfiler.sln /t:Rebuild /p:configuration=Release /p:Platform=x86
