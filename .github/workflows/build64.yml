@@ -18,7 +18,7 @@ jobs:
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Build x64
-      run: msbuild src/Picky.sln /t:Rebuild /p:configuration=Release /p:Platform=x64
+      run: msbuild src/PickyProfiler.sln /t:Rebuild /p:configuration=Release /p:Platform=x64
       
   build-x86:
 
