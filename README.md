@@ -36,4 +36,14 @@ Example:
 0x0028820B myapp_function_2
 0x0028840B
 ```
-The last entry will be nameless and will show up as sub_(*)
+The last entry will be nameless and will show up as sub_(*).
+
+Now all that is left to do is to start the process via the Loader
+Example:
+```
+Loader.exe MyApp.exe
+```
+Which should result in a new text file called ProfilerReport.txt.
+You can also inject the dll with other injectors or if you have the
+source code available you can also just load the Picky.dll into your
+process.
